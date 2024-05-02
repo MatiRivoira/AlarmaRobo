@@ -4,7 +4,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./views/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./views/auth/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./views/auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./views/splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: '',

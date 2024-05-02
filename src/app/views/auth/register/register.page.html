@@ -1,0 +1,53 @@
+<ion-content [ngStyle]="{'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'height': '100vh'}">
+  <div class="title-container">
+    <h1>Crea tu cuenta</h1>
+  </div>
+  <div class="wrapper center-absolutely">
+    <div class="login-container">
+      <div *ngIf="message" class="alert" [class.alert-success]="message === 'Cuenta creada exitosamente'" [class.alert-danger]="message !== 'Cuenta creada exitosamente'" role="alert">
+        {{ message }}
+      </div>
+      <div *ngIf="errMsg" class="err-msg"> {{errMsg}} </div>
+      <div class="input-box" >
+        <input type="text" placeholder="Correo Electronico" [(ngModel)]="email" [ngClass]="{'input-error': errorStates.email}">
+        <i class='bx bxs-user' [ngClass]="{'icon-error': errorStates.email}"></i>      
+      </div>
+      <div class="input-box">
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="Contraseña" [(ngModel)]="pass" [ngClass]="{'input-error': errorStates.pass}">
+        <i [class]='showPassword ? "bx bxs-lock-open" : "bx bxs-lock-alt"' (click)="togglePasswordVisibility()" [ngClass]="{'icon-error': errorStates.pass}" style="cursor: pointer;"></i>
+      </div>
+      <div class="input-box">
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="Repetir Contraseña" [(ngModel)]="pass2" [ngClass]="{'input-error': errorStates.pass2}">
+        <i [class]='showPassword ? "bx bxs-lock-open" : "bx bxs-lock-alt"' (click)="togglePasswordVisibility()" [ngClass]="{'icon-error': errorStates.pass2}" style="cursor: pointer;"></i>
+      </div>
+      <button type="submit" class="btn" (click)="CrearCuenta()">Crear cuenta</button>
+      <p>Ya tienes cuenta? <span (click)="login()">Inicia sesión</span></p>
+      <div *ngIf="showUsers" class="box-users">
+        <button (click)="autoFillUser()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="bi bi-person-fill-add">
+            <defs>
+                <linearGradient id="gradientePersona" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" fill="url(#gradientePersona)"/>
+            <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4" fill="url(#gradientePersona)"/>
+        </svg>
+          <span>Nuevo Usuario</span>
+        </button>
+      </div>
+      <span (click)="toggleUsersVisibility()" class="btnMostrarUsers">
+        @if (showUsers) {
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-compact-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894z"/>
+          </svg>
+        } @else {
+          <svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"/>
+          </svg>
+        }
+      </span>
+    </div>
+  </div>
+</ion-content>

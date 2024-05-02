@@ -1,0 +1,41 @@
+ion-content {
+  --background: #f1f2f6;
+  height: 100vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.title-container {
+  background-image: linear-gradient(to right, #ff8a00, #f6ff00);
+  display: flex; /* Activa Flexbox para el contenedor */
+  justify-content: space-between; /* Separa los elementos al máximo, empujando el h1 a la izquierda y los otros elementos a la derecha */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 100%;
+  height: 10vh; /* Asegúrate que esta altura sea suficiente para mostrar el contenido como quieres */
+  padding: 20px; /* Espacio adicional en la parte inferior */
+  border-radius: 0px 0px 0px 30px;
+}
+
+.title-container h1 {
+  color: white;
+  margin: 0; /* Elimina márgenes automáticos para un control más fino */
+  z-index: 2;
+  font-weight: bolder;
+}
+
+.title-container .right-content {
+  display: flex; /* Usa flexbox para alinear el ícono y el texto */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+  justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+}
+
+.title-container i {
+  font-size: 30px;
+  margin-right: 2px; /* Añade un pequeño margen entre el ícono y el texto */
+}
+
+.title-container span {
+  white-space: nowrap; /* Evita que el texto se rompa en líneas */
+  font-weight: bolder;
+}
