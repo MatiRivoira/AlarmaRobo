@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from "@angular/fire/compat";
 
+import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
+import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
+import { Flashlight } from '@awesome-cordova-plugins/flashlight/ngx';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyBWh9ZePe049MhEDN_6iduhLMmmp3P5J4E',
   authDomain: 'pruebaapp-5ca51.firebaseapp.com',
@@ -28,7 +32,11 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     RouterLink
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    DeviceMotion,
+    Vibration,
+    Flashlight
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

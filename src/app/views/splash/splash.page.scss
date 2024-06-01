@@ -22,7 +22,7 @@ ion-content::before {
     align-items: center;
     height: 100vh;
     transform: scale(0.5); /* Comienza con una escala de 0 */
-    animation: fadeInScale 0.5s ease-out forwards;
+    animation: rotateIn 0.5s ease-out forwards;
     animation-delay: 2s; /* Retraso de 2 segundos antes de iniciar la animación */
 }
 
@@ -42,11 +42,12 @@ ion-content::before {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Sombra para el texto */
 }
 
-@keyframes fadeInScale {
+/* Animación rotateIn */
+@keyframes rotateIn {
     0% {
-        transform: scale(0.5);
+        transform: rotate(-180deg);
     }
     100% {
-        transform: scale(1);
+        transform: rotate(0deg);
     }
 }

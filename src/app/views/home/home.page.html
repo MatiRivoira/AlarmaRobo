@@ -5,4 +5,31 @@
       <span>Cerrar sesión</span>
     </div>
   </div>
+  <div class="container-principal">
+    @if (alarmaActivada) {
+      <button class="btn-alarma-activada" (click)="alternarAlarma()">
+        <i class="bi bi-bell-fill"></i>
+        <p>Alarma Activada</p>
+      </button>
+    } @else {
+      <button class="btn-alarma-desactivada" (click)="alternarAlarma()">
+        <i class="bi bi-bell-slash"></i>
+        <p>Alarma desactivada</p>
+      </button>
+    }
+  </div>
+
+  <div *ngIf="mostrarModal" class="modal-background">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Desactivar Alarma</h2>
+      </div>
+      <div class="modal-body">
+        <input type="password" placeholder="Contraseña" [(ngModel)]="password">
+      </div>
+      <div class="modal-footer">
+        <button (click)="desactivarAlarma()">Desactivar</button>
+      </div>
+    </div>
+  </div>
 </ion-content>

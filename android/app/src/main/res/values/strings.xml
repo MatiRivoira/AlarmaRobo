@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AlarmaRobo</string>
+    <string name="title_activity_main">AlarmaRobo</string>
+    <string name="package_name">com.matirivoira.AlarmaRobo</string>
+    <string name="custom_url_scheme">com.matirivoira.AlarmaRobo</string>
+</resources>

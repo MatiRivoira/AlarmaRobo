@@ -11,6 +11,7 @@
     </svg>
   </div>
   <div class="title-container">
+    <img src="../../../../assets/icon/icon2.png" alt="" width="100px"> <br>
     <h1>Iniciar sesión</h1>
   </div>
   <div class="wrapper center-absolutely">
@@ -18,81 +19,62 @@
       <div *ngIf="errMsg" class="err-msg-top"> {{errMsg}} </div>
       <div class="input-box">
         <input type="text" placeholder="Correo Electronico" [(ngModel)]="email" [ngClass]="{'input-error': errorStates.email}">
-        <i class='bx bxs-user' [ngClass]="{'icon-error': errorStates.email}"></i>      
       </div>
       <div *ngIf="errMsgemail" class="err-msg" style="margin-bottom: -10px;">{{errMsgemail}}</div>
       <div class="input-box">
         <input [type]="showPassword ? 'text' : 'password'" placeholder="Contraseña" [(ngModel)]="password" [ngClass]="{'input-error': errorStates.password}">
-        <i [class]='showPassword ? "bx bxs-lock-open" : "bx bxs-lock-alt"' (click)="togglePasswordVisibility()" [ngClass]="{'icon-error': errorStates.password}" style="cursor: pointer;"></i>
+        <i [class]="showPassword ? 'bx bx-show' : 'bx bx-hide'" 
+        (click)="togglePasswordVisibility()" 
+        [ngClass]="{'icon-error': errorStates.password}" 
+        style="cursor: pointer; font-size: 24px;"></i>
       </div>
       <div *ngIf="errMsgPassword" class="err-msg"> {{errMsgPassword}} </div>
-      <div class="clear-btn" (click)="limpiar()">Limpiar</div>
-      <button type="submit" class="btn" (click)="login()">Iniciar sesión</button>
-      <p>No tienes cuenta? <span (click)="registrar()">Registrate</span></p>
+      <button style="margin-bottom: 20px;" type="submit" class="btn" (click)="login()">Iniciar sesión</button>
+      <button type="submit" class="btn" (click)="registrar()">Crear cuenta</button>
     </div>
-    <div *ngIf="showUsers" class="box-users">
+    <div class="box-users">
       <button (click)="autoFillUser('user1')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
           <defs>
-              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
-              </linearGradient>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
+            </linearGradient>
           </defs>
-          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0" fill="url(#grad1)"/>
-          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" fill="url(#grad1)"/>
+          <circle cx="12" cy="12" r="10" fill="url(#grad1)"/>
+          <circle cx="12" cy="10" r="3" fill="#fff"/>
+          <path d="M12 13c-4 0-6 2-6 2v2h12v-2s-2-2-6-2z" fill="#fff"/>
         </svg>
-        <span>User 1</span>
+        <span>Usuario 1</span>
       </button>
       <button (click)="autoFillUser('user2')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
           <defs>
-              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
-              </linearGradient>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
+            </linearGradient>
           </defs>
-          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0" fill="url(#grad1)"/>
-          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" fill="url(#grad1)"/>
+          <circle cx="12" cy="12" r="10" fill="url(#grad2)"/>
+          <circle cx="12" cy="10" r="3" fill="#fff"/>
+          <path d="M12 13c-4 0-6 2-6 2v2h12v-2s-2-2-6-2z" fill="#fff"/>
         </svg>
-        <span>User 2</span>
+        <span>Usuario 2</span>
       </button>
       <button (click)="autoFillUser('user3')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
           <defs>
-              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
-              </linearGradient>
+            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
+            </linearGradient>
           </defs>
-          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0" fill="url(#grad1)"/>
-          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" fill="url(#grad1)"/>
+          <circle cx="12" cy="12" r="10" fill="url(#grad3)"/>
+          <circle cx="12" cy="10" r="3" fill="#fff"/>
+          <path d="M12 13c-4 0-6 2-6 2v2h12v-2s-2-2-6-2z" fill="#fff"/>
         </svg>
-        <span>User 3</span>
+        <span>Usuario 3</span>
       </button>
-    </div>
-    <span (click)="toggleUsersVisibility()" class="btnMostrarUsers">
-      @if (showUsers) {
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="bi bi-chevron-compact-up">
-          <defs>
-              <linearGradient id="chevronGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
-              </linearGradient>
-          </defs>
-          <path fill-rule="evenodd" d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894z" fill="url(#chevronGradient)"/>
-        </svg>
-      } @else {
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" class="bi bi-chevron-compact-down">
-          <defs>
-              <linearGradient id="downChevronGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#ff8a00; stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#f6ff00; stop-opacity:1" />
-              </linearGradient>
-          </defs>
-          <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67" fill="url(#downChevronGradient)"/>
-        </svg>
-      }
-    </span>
+    </div>    
   </div>
 </ion-content>
