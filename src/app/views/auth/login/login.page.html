@@ -18,7 +18,7 @@
     <div class="login-container">
       <div *ngIf="errMsg" class="err-msg-top"> {{errMsg}} </div>
       <div class="input-box">
-        <input type="text" placeholder="Correo Electronico" [(ngModel)]="email" [ngClass]="{'input-error': errorStates.email}">
+        <input type="text" placeholder="Correo Electrónico" [(ngModel)]="email" [ngClass]="{'input-error': errorStates.email}">
       </div>
       <div *ngIf="errMsgemail" class="err-msg" style="margin-bottom: -10px;">{{errMsgemail}}</div>
       <div class="input-box">
@@ -29,8 +29,8 @@
         style="cursor: pointer; font-size: 24px;"></i>
       </div>
       <div *ngIf="errMsgPassword" class="err-msg"> {{errMsgPassword}} </div>
-      <button style="margin-bottom: 20px;" type="submit" class="btn" (click)="login()">Iniciar sesión</button>
-      <button type="submit" class="btn" (click)="registrar()">Crear cuenta</button>
+      <button style="margin-bottom: 20px; border-radius: 0px;" type="submit" class="btn" (click)="login()" >Iniciar sesión</button>
+      <button type="submit" class="btn" (click)="registrar()" style="border-radius: 0px;">Crear cuenta</button>
     </div>
     <div class="box-users">
       <button (click)="autoFillUser('user1')">
